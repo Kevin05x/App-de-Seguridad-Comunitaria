@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_translucent">#E6FFFFFF</color>
+
+    <color name="brand_primary">#137FEC</color>
+    <color name="brand_primary_dark">#2458C8</color>
+    <color name="bg_light">#F6F7F8</color>
+    <color name="bg_dark">#101922</color>
+
+    <color name="red_alert">#EF4444</color>
+    <color name="red_sos">#DC2626</color>
+    <color name="red_sos_dark">#B91C1C</color>
+
+    <color name="green_safety">#22C55E</color>
+    <color name="green_safety_dark">#16A34A</color>
+    <color name="green_dark">#1E3A38</color>
+    <color name="green_soft_bg">#F0FDF4</color>
+
+    <color name="orange_pet">#FB923C</color>
+    <color name="orange_dark">#3A342F</color>
+    <color name="orange_pet_dark">#F97316</color>
+    <color name="orange_soft_bg">#FFF7ED</color>
+
+    <color name="blue_verified">#3B82F6</color>
+
+    <color name="ui_scroll_bar">#3B4754</color>
+    <color name="ui_scroll_bar_hover">#556677</color>
+
+    <color name="bg_card_dark">#1C2127</color>
+    <color name="bg_button_dark">#283039</color>
+    <color name="bg_button_dark_hover">#343E4A</color>
+    <color name="border_dark">#2D3642</color>
+    <color name="bg_section_dark">#111418</color>
+
+    <color name="gris_slate_50">#F8FAFC</color>
+    <color name="gris_slate_100">#F1F5F9</color>
+    <color name="gris_slate_200">#E2E8F0</color>
+    <color name="gris_slate_300">#CBD5E1</color>
+    <color name="gris_slate_400">#94A3B8</color>
+    <color name="gris_slate_500">#64748B</color>
+    <color name="gris_slate_700">#334155</color>
+    <color name="gris_slate_800">#1E293B</color>
+    <color name="gris_slate_900">#0F172A</color>
+
+    <color name="shadow_primary">#33137FEC</color>
+    <color name="shadow_sos">#80DC2626</color>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_comunidad"
+            android:icon="@drawable/ic_groups"
+            android:title="Mi Comunidad"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_historial"
+            android:icon="@drawable/ic_sos"
+            android:title="Historial de Alertas"/>
+
+        <item
+            android:id="@+id/nav_contactos"
+            android:icon="@drawable/ic_person"
+            android:title="Contactos de Emergencia" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Cerrar Sesión" />
+        </menu>
+    </item>
+</menu>

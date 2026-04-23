@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_section_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutCabeceraContactos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvTituloContactos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contactos de Emergencia"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <EditText
+                android:id="@+id/etBuscarContacto"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/bg_border_input"
+                android:hint="Buscar contacto..."
+                android:textColorHint="@color/gris_slate_400"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingHorizontal="12dp"
+                android:visibility="gone"
+                android:imeOptions="actionSearch"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toEndOf="@id/btnMenu"
+                app:layout_constraintEnd_toStartOf="@+id/btnBuscarContacto"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btnBuscarContacto"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_search"
+                app:tint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnAgregarContacto"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/brand_primary"
+            android:text="Agregar Contacto"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_addcontact"
+            app:iconGravity="textStart"
+            app:layout_constraintTop_toBottomOf="@id/layoutCabeceraContactos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEtiquetaContactos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Tus contactos de emergencia: "
+            android:textColor="@color/gris_slate_400"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAgregarContacto" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContactosEmergencia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false"
+            android:paddingBottom="100dp"
+            app:layout_constraintTop_toBottomOf="@id/tvEtiquetaContactos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_contacto" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar_contactos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/bg_card_dark"
+                app:fabAlignmentMode="center"
+                app:fabCradleMargin="10dp"
+                app:fabCradleRoundedCornerRadius="20dp">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView_contactos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:menu="@menu/menu_navegacion"
+                    app:itemIconTint="@color/gris_slate_400"
+                    app:itemTextColor="@color/gris_slate_400"
+                    app:elevation="0dp" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_sos_nav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red_sos"
+                android:src="@drawable/ic_sos"
+                app:tint="@color/white"
+                app:borderWidth="0dp"
+                app:layout_anchor="@id/bottomAppBar_contactos"
+                app:layout_anchorGravity="center"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/bg_button_dark"
+        app:headerLayout="@layout/item_encabezado_menu"
+        app:menu="@menu/drawer_menu"
+        app:itemIconTint="@color/gris_slate_400"
+        app:itemTextColor="@color/white"
+        app:itemShapeFillColor="@color/bg_button_dark"
+        app:itemBackground="@drawable/bg_button_bordered"
+        android:fitsSystemWindows="true"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

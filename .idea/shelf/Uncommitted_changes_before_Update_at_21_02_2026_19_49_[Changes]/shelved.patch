@@ -1,0 +1,755 @@
+Index: app/src/main/res/layout/item_post.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<com.google.android.material.card.MaterialCardView\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_margin=\"5dp\"\r\n    app:cardBackgroundColor=\"@color/bg_card_dark\"\r\n    app:strokeColor=\"@color/border_dark\"\r\n    app:strokeWidth=\"1dp\"\r\n    app:cardCornerRadius=\"16dp\"\r\n    app:cardElevation=\"0dp\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:padding=\"16dp\">\r\n\r\n        <com.google.android.material.imageview.ShapeableImageView\r\n            android:id=\"@+id/imgAvatarPerfil\"\r\n            android:layout_width=\"40dp\"\r\n            android:layout_height=\"40dp\"\r\n            tools:src=\"@tools:sample/avatars\"\r\n            app:shapeAppearanceOverlay=\"@style/ShapeAppearance.Material3.Corner.Full\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/txtNombreUsuario\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            tools:text=\"Oficial Ramírez\"\r\n            android:textColor=\"@color/white\"\r\n            android:textStyle=\"bold\"\r\n            android:textSize=\"14sp\"\r\n            android:layout_marginStart=\"12dp\"\r\n            android:layout_marginEnd=\"8dp\"\r\n            app:layout_constraintStart_toEndOf=\"@id/imgAvatarPerfil\"\r\n            app:layout_constraintTop_toTopOf=\"@id/imgAvatarPerfil\"\r\n            app:layout_constraintEnd_toStartOf=\"@+id/btnMasOpciones\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/txtEtiquetaTipo\"\r\n            app:layout_constraintVertical_chainStyle=\"packed\"/>\r\n\r\n        <TextView\r\n            android:id=\"@+id/txtEtiquetaTipo\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            tools:text=\"Consejo de Seguridad\"\r\n            android:textColor=\"@color/green_safety\"\r\n            android:textSize=\"12sp\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintStart_toStartOf=\"@id/txtNombreUsuario\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/txtNombreUsuario\"\r\n            app:layout_constraintBottom_toBottomOf=\"@id/imgAvatarPerfil\"/>\r\n\r\n        <TextView\r\n            android:id=\"@+id/txtTiempoPublicacion\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\" • 2h\"\r\n            android:textColor=\"@color/gris_slate_400\"\r\n            android:textSize=\"12sp\"\r\n            android:layout_marginStart=\"4dp\"\r\n            app:layout_constraintStart_toEndOf=\"@id/txtEtiquetaTipo\"\r\n            app:layout_constraintBaseline_toBaselineOf=\"@id/txtEtiquetaTipo\"/>\r\n\r\n        <ImageView\r\n            android:id=\"@+id/btnMasOpciones\"\r\n            android:layout_width=\"24dp\"\r\n            android:layout_height=\"24dp\"\r\n            android:src=\"@drawable/ic_more_vert\"\r\n            app:tint=\"@color/gris_slate_500\"\r\n            android:background=\"?attr/selectableItemBackgroundBorderless\"\r\n            android:clickable=\"true\"\r\n            android:focusable=\"true\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"/>\r\n\r\n        <TextView\r\n            android:id=\"@+id/txtContenidoPost\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"12dp\"\r\n            tools:text=\"Vecinos, recuerden verificar que el portón principal quede bien cerrado al salir. Hemos notado actividad inusual en la zona norte.\"\r\n            android:textColor=\"@color/gris_slate_200\"\r\n            android:textSize=\"14sp\"\r\n            android:lineSpacingMultiplier=\"1.2\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/imgAvatarPerfil\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"/>\r\n\r\n        <com.google.android.material.chip.Chip\r\n            android:id=\"@+id/chipSector\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"8dp\"\r\n            tools:text=\"Sector Los Olivos - Zona 4\"\r\n            app:chipIcon=\"@drawable/ic_location\"\r\n            app:chipIconTint=\"@color/brand_primary\"\r\n            android:textColor=\"@color/brand_primary\"\r\n            app:chipBackgroundColor=\"@color/bg_button_dark\"\r\n            app:chipStrokeWidth=\"0dp\"\r\n            app:chipCornerRadius=\"100dp\"\r\n            app:ensureMinTouchTargetSize=\"false\"\r\n            android:visibility=\"gone\"\r\n            tools:visibility=\"visible\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/txtContenidoPost\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"/>\r\n\r\n        <com.google.android.material.imageview.ShapeableImageView\r\n            android:id=\"@+id/imgContenidoMultimedia\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"180dp\"\r\n            android:layout_marginTop=\"12dp\"\r\n            android:scaleType=\"centerCrop\"\r\n            android:visibility=\"visible\"\r\n            tools:src=\"@tools:sample/backgrounds/scenic\"\r\n            app:shapeAppearanceOverlay=\"@style/ShapeAppearance.Material3.Corner.Medium\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/chipSector\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"/>\r\n        <View\r\n            android:id=\"@+id/separador\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"1dp\"\r\n            android:layout_marginTop=\"12dp\"\r\n            android:background=\"@color/border_dark\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/imgContenidoMultimedia\" />\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/btnUtil\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:gravity=\"center_vertical\"\r\n            android:padding=\"8dp\"\r\n            android:clickable=\"true\"\r\n            android:focusable=\"true\"\r\n            android:background=\"?attr/selectableItemBackground\"\r\n            app:layout_constraintTop_toBottomOf=\"@id/separador\"\r\n            app:layout_constraintStart_toStartOf=\"parent\">\r\n\r\n            <ImageView\r\n                android:layout_width=\"18dp\"\r\n                android:layout_height=\"18dp\"\r\n                android:src=\"@drawable/ic_like\"\r\n                app:tint=\"@color/gris_slate_400\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/txtContadorUtil\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginStart=\"6dp\"\r\n                android:text=\"0 Útil\"\r\n                android:textColor=\"@color/gris_slate_400\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"13sp\" />\r\n        </LinearLayout>\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n</com.google.android.material.card.MaterialCardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_post.xml b/app/src/main/res/layout/item_post.xml
+--- a/app/src/main/res/layout/item_post.xml	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/app/src/main/res/layout/item_post.xml	(date 1771719957044)
+@@ -6,8 +6,8 @@
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+-    app:cardBackgroundColor="@color/bg_card_dark"
+-    app:strokeColor="@color/border_dark"
++    app:cardBackgroundColor="#1D2127"
++    app:strokeColor="@color/gris_slate_700"
+     app:strokeWidth="1dp"
+     app:cardCornerRadius="16dp"
+     app:cardElevation="0dp">
+@@ -19,8 +19,8 @@
+ 
+         <com.google.android.material.imageview.ShapeableImageView
+             android:id="@+id/imgAvatarPerfil"
+-            android:layout_width="40dp"
+-            android:layout_height="40dp"
++            android:layout_width="50dp"
++            android:layout_height="50dp"
+             tools:src="@tools:sample/avatars"
+             app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+             app:layout_constraintStart_toStartOf="parent"
+@@ -30,15 +30,13 @@
+             android:id="@+id/txtNombreUsuario"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+-            tools:text="Oficial Ramírez"
++            tools:text="Nombre del que publica"
+             android:textColor="@color/white"
+             android:textStyle="bold"
+             android:textSize="14sp"
+-            android:layout_marginStart="12dp"
+-            android:layout_marginEnd="8dp"
++            android:layout_marginHorizontal="10dp"
+             app:layout_constraintStart_toEndOf="@id/imgAvatarPerfil"
+             app:layout_constraintTop_toTopOf="@id/imgAvatarPerfil"
+-            app:layout_constraintEnd_toStartOf="@+id/btnMasOpciones"
+             app:layout_constraintBottom_toTopOf="@+id/txtEtiquetaTipo"
+             app:layout_constraintVertical_chainStyle="packed"/>
+ 
+@@ -46,7 +44,7 @@
+             android:id="@+id/txtEtiquetaTipo"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+-            tools:text="Consejo de Seguridad"
++            tools:text="Tipo de publicacion"
+             android:textColor="@color/green_safety"
+             android:textSize="12sp"
+             android:textStyle="bold"
+@@ -58,24 +56,13 @@
+             android:id="@+id/txtTiempoPublicacion"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+-            android:text=" • 2h"
++            android:text="Tiempo des que se publico"
+             android:textColor="@color/gris_slate_400"
+             android:textSize="12sp"
+             android:layout_marginStart="4dp"
+             app:layout_constraintStart_toEndOf="@id/txtEtiquetaTipo"
+             app:layout_constraintBaseline_toBaselineOf="@id/txtEtiquetaTipo"/>
+ 
+-        <ImageView
+-            android:id="@+id/btnMasOpciones"
+-            android:layout_width="24dp"
+-            android:layout_height="24dp"
+-            android:src="@drawable/ic_more_vert"
+-            app:tint="@color/gris_slate_500"
+-            android:background="?attr/selectableItemBackgroundBorderless"
+-            android:clickable="true"
+-            android:focusable="true"
+-            app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintTop_toTopOf="parent"/>
+ 
+         <TextView
+             android:id="@+id/txtContenidoPost"
+@@ -83,7 +70,7 @@
+             android:layout_height="wrap_content"
+             android:layout_marginTop="12dp"
+             tools:text="Vecinos, recuerden verificar que el portón principal quede bien cerrado al salir. Hemos notado actividad inusual en la zona norte."
+-            android:textColor="@color/gris_slate_200"
++            android:textColor="@color/gris_slate_50"
+             android:textSize="14sp"
+             android:lineSpacingMultiplier="1.2"
+             app:layout_constraintTop_toBottomOf="@id/imgAvatarPerfil"
+@@ -96,22 +83,22 @@
+             android:layout_height="wrap_content"
+             android:layout_marginTop="8dp"
+             tools:text="Sector Los Olivos - Zona 4"
+-            app:chipIcon="@drawable/ic_location"
+-            app:chipIconTint="@color/brand_primary"
+             android:textColor="@color/brand_primary"
+             app:chipBackgroundColor="@color/bg_button_dark"
++            android:visibility="gone"
++            tools:visibility="visible"
++            app:chipIcon="@drawable/ic_location"
++            app:chipIconTint="@color/brand_primary"
+             app:chipStrokeWidth="0dp"
+             app:chipCornerRadius="100dp"
+             app:ensureMinTouchTargetSize="false"
+-            android:visibility="gone"
+-            tools:visibility="visible"
+             app:layout_constraintTop_toBottomOf="@id/txtContenidoPost"
+             app:layout_constraintStart_toStartOf="parent"/>
+ 
+         <com.google.android.material.imageview.ShapeableImageView
+             android:id="@+id/imgContenidoMultimedia"
+             android:layout_width="match_parent"
+-            android:layout_height="180dp"
++            android:layout_height="160dp"
+             android:layout_marginTop="12dp"
+             android:scaleType="centerCrop"
+             android:visibility="visible"
+@@ -124,38 +111,27 @@
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:layout_marginTop="12dp"
+-            android:background="@color/border_dark"
++            android:background="@color/gris_slate_700"
+             app:layout_constraintTop_toBottomOf="@id/imgContenidoMultimedia" />
+ 
+-        <LinearLayout
++        <com.google.android.material.button.MaterialButton
+             android:id="@+id/btnUtil"
+-            android:layout_width="wrap_content"
++            android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:orientation="horizontal"
+-            android:gravity="center_vertical"
+-            android:padding="8dp"
+-            android:clickable="true"
+-            android:focusable="true"
+-            android:background="?attr/selectableItemBackground"
+-            app:layout_constraintTop_toBottomOf="@id/separador"
+-            app:layout_constraintStart_toStartOf="parent">
+-
+-            <ImageView
+-                android:layout_width="18dp"
+-                android:layout_height="18dp"
+-                android:src="@drawable/ic_like"
+-                app:tint="@color/gris_slate_400" />
+-
+-            <TextView
+-                android:id="@+id/txtContadorUtil"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginStart="6dp"
+-                android:text="0 Útil"
+-                android:textColor="@color/gris_slate_400"
+-                android:textStyle="bold"
+-                android:textSize="13sp" />
+-        </LinearLayout>
++            android:text="0 Útil"
++            android:layout_marginVertical="10dp"
++            android:textColor="@color/gris_slate_50"
++            android:textSize="13sp"
++            app:icon="@drawable/ic_like"
++            app:iconTint="@color/gris_slate_400"
++            app:iconGravity="textStart"
++            app:iconPadding="10dp"
++            app:cornerRadius="15dp"
++            app:backgroundTint="@color/bg_button_dark_hover"
++            app:layout_constraintTop_toBottomOf="@id/separador"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"/>
++
+     </androidx.constraintlayout.widget.ConstraintLayout>
+ 
+ </com.google.android.material.card.MaterialCardView>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_muro_seguridad.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/contenedorPrincipal\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".ActivityMuroSeguridad\"\r\n    android:background=\"@color/bg_section_dark\">\r\n\r\n  <androidx.constraintlayout.widget.ConstraintLayout\r\n      android:id=\"@+id/layoutCabecera\"\r\n      android:layout_width=\"match_parent\"\r\n      android:layout_height=\"wrap_content\"\r\n      android:background=\"@color/bg_section_dark\"\r\n      android:padding=\"16dp\"\r\n      app:layout_constraintTop_toTopOf=\"parent\"\r\n      app:layout_constraintStart_toStartOf=\"parent\"\r\n      app:layout_constraintEnd_toEndOf=\"parent\">\r\n\r\n    <com.google.android.material.imageview.ShapeableImageView\r\n        android:id=\"@+id/imgPerfilUsuario\"\r\n        android:layout_width=\"40dp\"\r\n        android:layout_height=\"40dp\"\r\n        android:padding=\"2dp\"\r\n        tools:src=\"@tools:sample/avatars\"\r\n        app:shapeAppearanceOverlay=\"@style/ShapeAppearance.Material3.Corner.Full\"\r\n        app:strokeColor=\"@color/orange_pet\"\r\n        app:strokeWidth=\"1dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:gravity=\"center\"\r\n        android:orientation=\"vertical\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toStartOf=\"@id/btnNotificaciones\"\r\n        app:layout_constraintStart_toEndOf=\"@id/imgPerfilUsuario\"\r\n        app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n      <TextView\r\n          android:layout_width=\"wrap_content\"\r\n          android:layout_height=\"wrap_content\"\r\n          android:text=\"Muro de Seguridad\"\r\n          android:textColor=\"@color/white\"\r\n          android:textSize=\"17sp\"\r\n          android:textStyle=\"bold\" />\r\n\r\n      <TextView\r\n          android:layout_width=\"wrap_content\"\r\n          android:layout_height=\"wrap_content\"\r\n          android:text=\"Barrio seguro\"\r\n          android:textColor=\"@color/gris_slate_400\"\r\n          android:textSize=\"12sp\" />\r\n    </LinearLayout>\r\n\r\n    <ImageView\r\n        android:id=\"@+id/btnNotificaciones\"\r\n        android:layout_width=\"24dp\"\r\n        android:layout_height=\"24dp\"\r\n        android:src=\"@drawable/ic_notifications\"\r\n        app:tint=\"@color/white\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n  </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n  <androidx.core.widget.NestedScrollView\r\n      android:layout_width=\"match_parent\"\r\n      android:layout_height=\"0dp\"\r\n      android:clipToPadding=\"false\"\r\n      android:fillViewport=\"true\"\r\n      app:layout_constraintTop_toBottomOf=\"@id/layoutCabecera\"\r\n      app:layout_constraintBottom_toTopOf=\"@id/contenedorBarraInferior\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\"\r\n        android:paddingBottom=\"16dp\">\r\n\r\n      <com.google.android.material.card.MaterialCardView\r\n          android:id=\"@+id/cardCrearPublicacion\"\r\n          android:layout_width=\"match_parent\"\r\n          android:layout_height=\"wrap_content\"\r\n          android:layout_margin=\"16dp\"\r\n          app:cardBackgroundColor=\"@color/bg_card_dark\"\r\n          app:cardCornerRadius=\"16dp\"\r\n          app:cardElevation=\"0dp\"\r\n          app:strokeColor=\"@color/border_dark\"\r\n          app:strokeWidth=\"1dp\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\"\r\n            android:padding=\"16dp\">\r\n\r\n          <LinearLayout\r\n              android:layout_width=\"match_parent\"\r\n              android:layout_height=\"wrap_content\"\r\n              android:gravity=\"center_vertical\"\r\n              android:orientation=\"horizontal\">\r\n\r\n            <com.google.android.material.imageview.ShapeableImageView\r\n                android:layout_width=\"32dp\"\r\n                android:layout_height=\"32dp\"\r\n                tools:src=\"@tools:sample/avatars\"\r\n                app:shapeAppearanceOverlay=\"@style/ShapeAppearance.Material3.Corner.Full\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/tvPromptReporte\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginStart=\"12dp\"\r\n                android:text=\"Reportar actividad sospechosa...\"\r\n                android:textColor=\"@color/gris_slate_500\"\r\n                android:textSize=\"14sp\" />\r\n          </LinearLayout>\r\n\r\n          <LinearLayout\r\n              android:layout_width=\"match_parent\"\r\n              android:layout_height=\"wrap_content\"\r\n              android:layout_marginTop=\"16dp\"\r\n              android:gravity=\"center_vertical\"\r\n              android:orientation=\"horizontal\">\r\n\r\n            <ImageView\r\n                android:id=\"@+id/btnAbrirCamara\"\r\n                android:layout_width=\"24dp\"\r\n                android:layout_height=\"24dp\"\r\n                android:src=\"@drawable/ic_camera\"\r\n                app:tint=\"@color/gris_slate_500\" />\r\n\r\n<!--            <ImageView-->\r\n<!--                android:layout_width=\"24dp\"-->\r\n<!--                android:layout_height=\"24dp\"-->\r\n<!--                android:layout_marginStart=\"20dp\"-->\r\n<!--                android:src=\"@drawable/ic_microfono\"-->\r\n<!--                app:tint=\"@color/gris_slate_500\" />-->\r\n\r\n            <ImageView\r\n                android:layout_width=\"24dp\"\r\n                android:layout_height=\"24dp\"\r\n                android:layout_marginStart=\"20dp\"\r\n                android:src=\"@drawable/ic_location\"\r\n                app:tint=\"@color/gris_slate_500\" />\r\n\r\n            <View\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"0dp\"\r\n                android:layout_weight=\"1\" />\r\n\r\n            <com.google.android.material.button.MaterialButton\r\n                android:id=\"@+id/btnPublicar\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"40dp\"\r\n                android:backgroundTint=\"@color/brand_primary\"\r\n                android:insetTop=\"0dp\"\r\n                android:insetBottom=\"0dp\"\r\n                android:text=\"Publicar\"\r\n                android:textAllCaps=\"false\"\r\n                android:textColor=\"@color/white\"\r\n                app:cornerRadius=\"20dp\" />\r\n          </LinearLayout>\r\n        </LinearLayout>\r\n      </com.google.android.material.card.MaterialCardView>\r\n\r\n      <HorizontalScrollView\r\n          android:layout_width=\"match_parent\"\r\n          android:layout_height=\"wrap_content\"\r\n          android:layout_marginBottom=\"8dp\"\r\n          android:paddingHorizontal=\"16dp\"\r\n          android:scrollbars=\"none\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\">\r\n\r\n          <com.google.android.material.card.MaterialCardView\r\n              android:id=\"@+id/chipFiltroTodo\"\r\n              android:layout_width=\"wrap_content\"\r\n              android:layout_height=\"32dp\"\r\n              app:cardBackgroundColor=\"@color/brand_primary\"\r\n              app:cardCornerRadius=\"100dp\"\r\n              app:cardElevation=\"0dp\"\r\n              app:strokeWidth=\"0dp\">\r\n\r\n            <TextView\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"match_parent\"\r\n                android:gravity=\"center\"\r\n                android:paddingHorizontal=\"20dp\"\r\n                android:text=\"Todo\"\r\n                android:textColor=\"@color/white\"\r\n                android:textStyle=\"bold\" />\r\n          </com.google.android.material.card.MaterialCardView>\r\n\r\n          <com.google.android.material.card.MaterialCardView\r\n              android:id=\"@+id/chipFiltroSospechoso\"\r\n              android:layout_width=\"wrap_content\"\r\n              android:layout_height=\"32dp\"\r\n              android:layout_marginStart=\"8dp\"\r\n              app:cardBackgroundColor=\"@color/bg_button_dark\"\r\n              app:cardCornerRadius=\"100dp\"\r\n              app:cardElevation=\"0dp\"\r\n              app:strokeWidth=\"0dp\">\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"match_parent\"\r\n                android:gravity=\"center\"\r\n                android:orientation=\"horizontal\"\r\n                android:paddingHorizontal=\"16dp\">\r\n\r\n              <ImageView\r\n                  android:layout_width=\"16dp\"\r\n                  android:layout_height=\"16dp\"\r\n                  android:src=\"@drawable/ic_warning\"\r\n                  app:tint=\"@color/red_alert\" />\r\n\r\n              <TextView\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n                  android:layout_marginStart=\"6dp\"\r\n                  android:text=\"Sospechoso\"\r\n                  android:textColor=\"@color/white\" />\r\n            </LinearLayout>\r\n          </com.google.android.material.card.MaterialCardView>\r\n\r\n          <com.google.android.material.card.MaterialCardView\r\n              android:id=\"@+id/chipFiltroConsejo\"\r\n              android:layout_width=\"wrap_content\"\r\n              android:layout_height=\"32dp\"\r\n              android:layout_marginStart=\"8dp\"\r\n              app:cardBackgroundColor=\"@color/bg_button_dark\"\r\n              app:cardCornerRadius=\"100dp\"\r\n              app:cardElevation=\"0dp\"\r\n              app:strokeWidth=\"0dp\">\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"match_parent\"\r\n                android:gravity=\"center\"\r\n                android:orientation=\"horizontal\"\r\n                android:paddingHorizontal=\"16dp\">\r\n\r\n              <ImageView\r\n                  android:layout_width=\"16dp\"\r\n                  android:layout_height=\"16dp\"\r\n                  android:src=\"@drawable/ic_shield\"\r\n                  app:tint=\"@color/green_safety\" />\r\n\r\n              <TextView\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n                  android:layout_marginStart=\"6dp\"\r\n                  android:text=\"Consejo de seguridad\"\r\n                  android:textColor=\"@color/white\" />\r\n            </LinearLayout>\r\n          </com.google.android.material.card.MaterialCardView>\r\n        </LinearLayout>\r\n      </HorizontalScrollView>\r\n\r\n        <androidx.recyclerview.widget.RecyclerView\r\n            android:id=\"@+id/rvFeedPublicaciones\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:nestedScrollingEnabled=\"false\"\r\n            tools:itemCount=\"3\"\r\n            tools:listitem=\"@layout/item_post\" />\r\n\r\n    </LinearLayout>\r\n  </androidx.core.widget.NestedScrollView>\r\n\r\n  <androidx.coordinatorlayout.widget.CoordinatorLayout\r\n      android:id=\"@+id/contenedorBarraInferior\"\r\n      android:layout_width=\"match_parent\"\r\n      android:layout_height=\"wrap_content\"\r\n      app:layout_constraintBottom_toBottomOf=\"parent\"\r\n      app:layout_constraintStart_toStartOf=\"parent\"\r\n      app:layout_constraintEnd_toEndOf=\"parent\">\r\n\r\n    <com.google.android.material.bottomappbar.BottomAppBar\r\n        android:id=\"@+id/barraNavegacion\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:backgroundTint=\"@color/bg_card_dark\"\r\n        app:fabAlignmentMode=\"center\"\r\n        app:fabCradleMargin=\"8dp\"\r\n        app:fabCradleRoundedCornerRadius=\"24dp\">\r\n\r\n      <LinearLayout\r\n          android:layout_width=\"match_parent\"\r\n          android:layout_height=\"match_parent\"\r\n          android:gravity=\"center_vertical\"\r\n          android:orientation=\"horizontal\">\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/navBtnInicio\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\">\r\n\r\n          <ImageView\r\n              android:layout_width=\"24dp\"\r\n              android:layout_height=\"24dp\"\r\n              android:src=\"@drawable/ic_home\"\r\n              app:tint=\"@color/brand_primary\" />\r\n\r\n          <TextView\r\n              android:layout_width=\"wrap_content\"\r\n              android:layout_height=\"wrap_content\"\r\n              android:text=\"Inicio\"\r\n              android:textColor=\"@color/brand_primary\"\r\n              android:textSize=\"10sp\" />\r\n        </LinearLayout>\r\n\r\n        <View\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\" />\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/navBtnPerfil\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\"\r\n            android:orientation=\"vertical\">\r\n\r\n          <ImageView\r\n              android:layout_width=\"24dp\"\r\n              android:layout_height=\"24dp\"\r\n              android:src=\"@drawable/ic_person\"\r\n              app:tint=\"@color/gris_slate_500\" />\r\n\r\n          <TextView\r\n              android:layout_width=\"wrap_content\"\r\n              android:layout_height=\"wrap_content\"\r\n              android:text=\"Perfil\"\r\n              android:textColor=\"@color/gris_slate_500\"\r\n              android:textSize=\"10sp\" />\r\n        </LinearLayout>\r\n      </LinearLayout>\r\n    </com.google.android.material.bottomappbar.BottomAppBar>\r\n\r\n    <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n        android:id=\"@+id/fabSOS\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:elevation=\"6dp\"\r\n        android:src=\"@drawable/ic_sos\"\r\n        app:backgroundTint=\"@color/red_sos\"\r\n        app:borderWidth=\"0dp\"\r\n        app:layout_anchor=\"@id/barraNavegacion\"\r\n        app:maxImageSize=\"32dp\"\r\n        app:tint=\"@color/white\" />\r\n\r\n  </androidx.coordinatorlayout.widget.CoordinatorLayout>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_muro_seguridad.xml b/app/src/main/res/layout/activity_muro_seguridad.xml
+--- a/app/src/main/res/layout/activity_muro_seguridad.xml	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/app/src/main/res/layout/activity_muro_seguridad.xml	(date 1771721282130)
+@@ -6,279 +6,216 @@
+     android:id="@+id/contenedorPrincipal"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".ActivityMuroSeguridad"
+-    android:background="@color/bg_section_dark">
++    android:padding="10dp"
++    android:background="@color/gris_slate_900"
++    tools:context=".ActivityMuroSeguridad">
+ 
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/layoutCabecera"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+-      android:background="@color/bg_section_dark"
+-      android:padding="16dp"
++      android:background="@drawable/bg_borde_comunidad"
++      android:padding="8dp"
++      android:layout_marginVertical="10dp"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent">
+ 
+-    <com.google.android.material.imageview.ShapeableImageView
+-        android:id="@+id/imgPerfilUsuario"
+-        android:layout_width="40dp"
+-        android:layout_height="40dp"
+-        android:padding="2dp"
+-        tools:src="@tools:sample/avatars"
+-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+-        app:strokeColor="@color/orange_pet"
+-        app:strokeWidth="1dp"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
+-
+-    <LinearLayout
+-        android:layout_width="0dp"
+-        android:layout_height="wrap_content"
+-        android:gravity="center"
+-        android:orientation="vertical"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toStartOf="@id/btnNotificaciones"
+-        app:layout_constraintStart_toEndOf="@id/imgPerfilUsuario"
+-        app:layout_constraintTop_toTopOf="parent">
+-
+       <TextView
+-          android:layout_width="wrap_content"
++          android:id="@+id/tvTituloMuro"
++          android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+-          android:text="Muro de Seguridad"
++          android:text="Muro de seguridad"
+           android:textColor="@color/white"
+-          android:textSize="17sp"
+-          android:textStyle="bold" />
++          android:textSize="25sp"
++          android:gravity="center"
++          android:layout_marginTop="5dp"
++          android:layout_marginStart="20dp"
++          app:layout_constraintStart_toStartOf="parent"
++          app:layout_constraintTop_toTopOf="parent" />
+ 
+       <TextView
+-          android:layout_width="wrap_content"
++          android:id="@+id/tvSubituloMuro"
++          android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Barrio seguro"
+           android:textColor="@color/gris_slate_400"
+-          android:textSize="12sp" />
+-    </LinearLayout>
+-
+-    <ImageView
+-        android:id="@+id/btnNotificaciones"
+-        android:layout_width="24dp"
+-        android:layout_height="24dp"
+-        android:src="@drawable/ic_notifications"
+-        app:tint="@color/white"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
+-
++          android:textSize="15sp"
++          android:gravity="center"
++          app:layout_constraintStart_toStartOf="@+id/tvTituloMuro"
++          app:layout_constraintTop_toBottomOf="@+id/tvTituloMuro"/>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+ 
+-  <androidx.core.widget.NestedScrollView
+-      android:layout_width="match_parent"
+-      android:layout_height="0dp"
+-      android:clipToPadding="false"
+-      android:fillViewport="true"
+-      app:layout_constraintTop_toBottomOf="@id/layoutCabecera"
+-      app:layout_constraintBottom_toTopOf="@id/contenedorBarraInferior">
+-
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:orientation="vertical"
+-        android:paddingBottom="16dp">
+-
+-      <com.google.android.material.card.MaterialCardView
+-          android:id="@+id/cardCrearPublicacion"
+-          android:layout_width="match_parent"
+-          android:layout_height="wrap_content"
+-          android:layout_margin="16dp"
+-          app:cardBackgroundColor="@color/bg_card_dark"
+-          app:cardCornerRadius="16dp"
+-          app:cardElevation="0dp"
+-          app:strokeColor="@color/border_dark"
+-          app:strokeWidth="1dp">
++  <LinearLayout
++      android:id="@+id/lyPost"
++      android:layout_width="match_parent"
++      android:layout_height="wrap_content"
++      android:orientation="vertical"
++      android:layout_marginVertical="10dp"
++      android:background="@drawable/bg_borde_comunidad"
++      android:padding="10dp"
++      app:layout_constraintTop_toBottomOf="@+id/layoutCabecera"
++      app:layout_constraintStart_toStartOf="parent"
++      app:layout_constraintEnd_toEndOf="parent">
+ 
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="vertical"
+-            android:padding="16dp">
+-
+-          <LinearLayout
+-              android:layout_width="match_parent"
+-              android:layout_height="wrap_content"
+-              android:gravity="center_vertical"
+-              android:orientation="horizontal">
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:gravity="center_vertical"
++        android:orientation="horizontal">
+ 
+-            <com.google.android.material.imageview.ShapeableImageView
+-                android:layout_width="32dp"
+-                android:layout_height="32dp"
+-                tools:src="@tools:sample/avatars"
+-                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
++      <com.google.android.material.imageview.ShapeableImageView
++          android:layout_width="50dp"
++          android:layout_height="50dp"
++          app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
++          tools:src="@tools:sample/avatars" />
+ 
+-            <EditText
+-                android:id="@+id/tvPromptReporte"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginStart="12dp"
+-                android:text="Reportar actividad sospechosa..."
+-                android:textColor="@color/gris_slate_500"
+-                android:textSize="14sp" />
+-          </LinearLayout>
++      <com.google.android.material.textfield.TextInputLayout
++          android:id="@+id/layoutDescripcionReporte"
++          android:layout_width="match_parent"
++          android:layout_height="wrap_content"
++          android:layout_marginStart="10dp"
++          style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
++          android:hint="Reportar actividad sospechosa..."
++          android:textColorHint="@color/gris_slate_400"
++          app:boxBackgroundColor="@color/bg_card_dark"
++          app:boxStrokeColor="@color/brand_primary"
++          app:boxCornerRadiusTopStart="12dp"
++          app:boxCornerRadiusTopEnd="12dp"
++          app:boxCornerRadiusBottomStart="12dp"
++          app:boxCornerRadiusBottomEnd="12dp"
++          app:endIconMode="none">
++
++        <com.google.android.material.textfield.TextInputEditText
++            android:id="@+id/tvPromptReporte"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:textColor="@color/gris_slate_50"
++            android:textSize="15sp"
++            android:inputType="textMultiLine"
++            android:scrollHorizontally="false"
++            android:maxLines="5"
++            android:overScrollMode="ifContentScrolls"
++            android:gravity="top|start"
++            android:imeOptions="flagNoEnterAction"/>
++      </com.google.android.material.textfield.TextInputLayout>
++
++    </LinearLayout>
+ 
+-          <LinearLayout
+-              android:layout_width="match_parent"
+-              android:layout_height="wrap_content"
+-              android:layout_marginTop="16dp"
+-              android:gravity="center_vertical"
+-              android:orientation="horizontal">
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginVertical="20dp"
++        android:gravity="center_vertical"
++        android:orientation="horizontal">
+ 
+-            <ImageView
+-                android:id="@+id/btnAbrirCamara"
+-                android:layout_width="24dp"
+-                android:layout_height="24dp"
+-                android:src="@drawable/ic_camera"
+-                app:tint="@color/gris_slate_500" />
+-
+-<!--            <ImageView-->
+-<!--                android:layout_width="24dp"-->
+-<!--                android:layout_height="24dp"-->
+-<!--                android:layout_marginStart="20dp"-->
+-<!--                android:src="@drawable/ic_microfono"-->
+-<!--                app:tint="@color/gris_slate_500" />-->
+-
+-            <ImageView
+-                android:layout_width="24dp"
+-                android:layout_height="24dp"
+-                android:layout_marginStart="20dp"
+-                android:src="@drawable/ic_location"
+-                app:tint="@color/gris_slate_500" />
++      <ImageView
++          android:id="@+id/btnAbrirCamara"
++          android:layout_width="50dp"
++          android:layout_height="50dp"
++          android:src="@drawable/ic_camera"
++          app:tint="@color/gris_slate_500" />
+ 
+-            <View
+-                android:layout_width="0dp"
+-                android:layout_height="0dp"
+-                android:layout_weight="1" />
++      <View
++          android:layout_width="0dp"
++          android:layout_height="0dp"
++          android:layout_weight="1" />
+ 
+-            <com.google.android.material.button.MaterialButton
+-                android:id="@+id/btnPublicar"
+-                android:layout_width="wrap_content"
+-                android:layout_height="40dp"
+-                android:backgroundTint="@color/brand_primary"
+-                android:insetTop="0dp"
+-                android:insetBottom="0dp"
+-                android:text="Publicar"
+-                android:textAllCaps="false"
+-                android:textColor="@color/white"
+-                app:cornerRadius="20dp" />
+-          </LinearLayout>
+-        </LinearLayout>
+-      </com.google.android.material.card.MaterialCardView>
++      <com.google.android.material.button.MaterialButton
++          android:id="@+id/btnPublicar"
++          android:layout_width="wrap_content"
++          android:layout_height="wrap_content"
++          android:backgroundTint="@color/brand_primary_dark"
++          android:insetTop="0dp"
++          android:insetBottom="0dp"
++          android:text="Publicar"
++          android:textAllCaps="false"
++          android:textColor="@color/white"
++          app:cornerRadius="20dp" />
++    </LinearLayout>
++  </LinearLayout>
++
++  <androidx.core.widget.NestedScrollView
++      android:id="@+id/nsvMuro"
++      android:layout_width="match_parent"
++      android:layout_height="0dp"
++      android:clipToPadding="false"
++      android:fillViewport="true"
++      android:layout_marginVertical="10dp"
++      app:layout_constraintTop_toBottomOf="@id/lyPost"
++      app:layout_constraintBottom_toTopOf="@id/contenedorBarraInferior">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        android:background="@color/gris_slate_900"
++        android:padding="10dp">
+ 
+       <HorizontalScrollView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+-          android:layout_marginBottom="8dp"
+-          android:paddingHorizontal="16dp"
+-          android:scrollbars="none">
++          android:fillViewport="false"
++          android:background="@drawable/bg_borde_comunidad"
++          android:scrollbars="none"
++          android:paddingHorizontal="16dp">
+ 
+-        <LinearLayout
++        <com.google.android.material.chip.ChipGroup
++            android:id="@+id/chipGroupFiltrosPosts"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
++            app:singleSelection="true"
++            app:selectionRequired="true"
+             android:orientation="horizontal">
+ 
+-          <com.google.android.material.card.MaterialCardView
+-              android:id="@+id/chipFiltroTodo"
++          <com.google.android.material.chip.Chip
++              android:id="@+id/chipTodo"
++              style="@style/Widget.Material3.Chip.Assist"
+               android:layout_width="wrap_content"
+-              android:layout_height="32dp"
+-              app:cardBackgroundColor="@color/brand_primary"
+-              app:cardCornerRadius="100dp"
+-              app:cardElevation="0dp"
+-              app:strokeWidth="0dp">
+-
+-            <TextView
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent"
+-                android:gravity="center"
+-                android:paddingHorizontal="20dp"
+-                android:text="Todo"
+-                android:textColor="@color/white"
+-                android:textStyle="bold" />
+-          </com.google.android.material.card.MaterialCardView>
++              android:layout_height="wrap_content"
++              android:text="Todo"
++              android:textColor="@color/white"
++              app:chipBackgroundColor="@color/brand_primary_dark"
++              android:layout_marginEnd="8dp"/>
+ 
+-          <com.google.android.material.card.MaterialCardView
+-              android:id="@+id/chipFiltroSospechoso"
++          <com.google.android.material.chip.Chip
++              android:id="@+id/chipSospechoso"
++              style="@style/Widget.Material3.Chip.Assist"
+               android:layout_width="wrap_content"
+-              android:layout_height="32dp"
+-              android:layout_marginStart="8dp"
+-              app:cardBackgroundColor="@color/bg_button_dark"
+-              app:cardCornerRadius="100dp"
+-              app:cardElevation="0dp"
+-              app:strokeWidth="0dp">
+-
+-            <LinearLayout
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent"
+-                android:gravity="center"
+-                android:orientation="horizontal"
+-                android:paddingHorizontal="16dp">
+-
+-              <ImageView
+-                  android:layout_width="16dp"
+-                  android:layout_height="16dp"
+-                  android:src="@drawable/ic_warning"
+-                  app:tint="@color/red_alert" />
+-
+-              <TextView
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-                  android:layout_marginStart="6dp"
+-                  android:text="Sospechoso"
+-                  android:textColor="@color/white" />
+-            </LinearLayout>
+-          </com.google.android.material.card.MaterialCardView>
++              android:layout_height="wrap_content"
++              android:text="Sospechoso"
++              android:textColor="@color/white"
++              app:chipIcon="@drawable/ic_warning"
++              app:chipIconTint="@color/red_alert"
++              app:chipBackgroundColor="@color/black"
++              android:layout_marginEnd="8dp"/>
+ 
+-          <com.google.android.material.card.MaterialCardView
+-              android:id="@+id/chipFiltroConsejo"
++          <com.google.android.material.chip.Chip
++              android:id="@+id/chipConsejoSeguridad"
++              style="@style/Widget.Material3.Chip.Assist"
+               android:layout_width="wrap_content"
+-              android:layout_height="32dp"
+-              android:layout_marginStart="8dp"
+-              app:cardBackgroundColor="@color/bg_button_dark"
+-              app:cardCornerRadius="100dp"
+-              app:cardElevation="0dp"
+-              app:strokeWidth="0dp">
+-
+-            <LinearLayout
+-                android:layout_width="wrap_content"
+-                android:layout_height="match_parent"
+-                android:gravity="center"
+-                android:orientation="horizontal"
+-                android:paddingHorizontal="16dp">
+-
+-              <ImageView
+-                  android:layout_width="16dp"
+-                  android:layout_height="16dp"
+-                  android:src="@drawable/ic_shield"
+-                  app:tint="@color/green_safety" />
+-
+-              <TextView
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-                  android:layout_marginStart="6dp"
+-                  android:text="Consejo de seguridad"
+-                  android:textColor="@color/white" />
+-            </LinearLayout>
+-          </com.google.android.material.card.MaterialCardView>
+-        </LinearLayout>
++              android:layout_height="wrap_content"
++              android:text="Consejo seguridad"
++              android:textColor="@color/white"
++              app:chipIcon="@drawable/ic_shield"
++              app:chipIconTint="@color/green_safety"
++              app:chipBackgroundColor="@color/black"/>
++        </com.google.android.material.chip.ChipGroup>
+       </HorizontalScrollView>
+ 
+-        <androidx.recyclerview.widget.RecyclerView
+-            android:id="@+id/rvFeedPublicaciones"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:nestedScrollingEnabled="false"
+-            tools:itemCount="3"
+-            tools:listitem="@layout/item_post" />
+-
++      <androidx.recyclerview.widget.RecyclerView
++          android:id="@+id/rvFeedPublicaciones"
++          android:layout_width="match_parent"
++          android:layout_height="wrap_content"
++          android:nestedScrollingEnabled="false"
++          android:clipToPadding="false"
++          android:paddingTop="10dp"
++          tools:itemCount="3"
++          tools:listitem="@layout/item_post" />
+     </LinearLayout>
+   </androidx.core.widget.NestedScrollView>
+ 
++
+   <androidx.coordinatorlayout.widget.CoordinatorLayout
+       android:id="@+id/contenedorBarraInferior"
+       android:layout_width="match_parent"
+@@ -355,16 +292,15 @@
+ 
+     <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:id="@+id/fabSOS"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
++        android:layout_width="60dp"
++        android:layout_height="60dp"
+         android:elevation="6dp"
+         android:src="@drawable/ic_sos"
+         app:backgroundTint="@color/red_sos"
+-        app:borderWidth="0dp"
++        app:borderWidth="18dp"
+         app:layout_anchor="@id/barraNavegacion"
+         app:maxImageSize="32dp"
+         app:tint="@color/white" />
+-
+   </androidx.coordinatorlayout.widget.CoordinatorLayout>
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"black\">#FF000000</color>\r\n    <color name=\"white\">#FFFFFFFF</color>\r\n    <color name=\"white_translucent\">#E6FFFFFF</color>\r\n\r\n    <color name=\"brand_primary\">#137FEC</color>\r\n    <color name=\"brand_primary_dark\">#2563EB</color>\r\n    <color name=\"bg_light\">#F6F7F8</color>\r\n    <color name=\"bg_dark\">#101922</color>\r\n\r\n    <color name=\"red_alert\">#EF4444</color>\r\n    <color name=\"red_sos\">#DC2626</color>\r\n    <color name=\"red_sos_dark\">#B91C1C</color>\r\n\r\n    <color name=\"green_safety\">#22C55E</color>\r\n    <color name=\"green_safety_dark\">#16A34A</color>\r\n    <color name=\"green_soft_bg\">#F0FDF4</color>\r\n\r\n    <color name=\"orange_pet\">#FB923C</color>\r\n    <color name=\"orange_pet_dark\">#F97316</color>\r\n    <color name=\"orange_soft_bg\">#FFF7ED</color>\r\n\r\n    <color name=\"blue_verified\">#3B82F6</color>\r\n\r\n    <color name=\"ui_scroll_bar\">#3B4754</color>\r\n    <color name=\"ui_scroll_bar_hover\">#556677</color>\r\n\r\n    <color name=\"bg_card_dark\">#1C2127</color>\r\n    <color name=\"bg_button_dark\">#283039</color>\r\n    <color name=\"bg_button_dark_hover\">#343E4A</color>\r\n    <color name=\"border_dark\">#2D3642</color>\r\n    <color name=\"bg_section_dark\">#111418</color>\r\n\r\n    <color name=\"gris_slate_50\">#F8FAFC</color>\r\n    <color name=\"gris_slate_100\">#F1F5F9</color>\r\n    <color name=\"gris_slate_200\">#E2E8F0</color>\r\n    <color name=\"gris_slate_400\">#94A3B8</color>\r\n    <color name=\"gris_slate_500\">#64748B</color>\r\n    <color name=\"gris_slate_700\">#334155</color>\r\n    <color name=\"gris_slate_800\">#1E293B</color>\r\n    <color name=\"gris_slate_900\">#0F172A</color>\r\n\r\n    <color name=\"shadow_primary\">#33137FEC</color>\r\n    <color name=\"shadow_sos\">#80DC2626</color>\r\n</resources>\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/app/src/main/res/values/colors.xml	(date 1771720299782)
+@@ -5,7 +5,7 @@
+     <color name="white_translucent">#E6FFFFFF</color>
+ 
+     <color name="brand_primary">#137FEC</color>
+-    <color name="brand_primary_dark">#2563EB</color>
++    <color name="brand_primary_dark">#2458C8</color>
+     <color name="bg_light">#F6F7F8</color>
+     <color name="bg_dark">#101922</color>
+ 
+Index: app/src/main/res/drawable/bg_borde_comunidad.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<selector xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n\r\n    <item>\r\n        <shape android:shape=\"rectangle\">\r\n            <solid android:color=\"#1D2127\"/>\r\n            <corners android:radius=\"12dp\"/>\r\n            <stroke android:width=\"1dp\" android:color=\"#444444\"/> <!-- Borde gris -->\r\n        </shape>\r\n    </item>\r\n\r\n</selector>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/bg_borde_comunidad.xml b/app/src/main/res/drawable/bg_borde_comunidad.xml
+--- a/app/src/main/res/drawable/bg_borde_comunidad.xml	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/app/src/main/res/drawable/bg_borde_comunidad.xml	(date 1771719698912)
+@@ -5,7 +5,7 @@
+         <shape android:shape="rectangle">
+             <solid android:color="#1D2127"/>
+             <corners android:radius="12dp"/>
+-            <stroke android:width="1dp" android:color="#444444"/> <!-- Borde gris -->
++            <stroke android:width="1dp" android:color="#444444"/>
+         </shape>
+     </item>
+ 
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />\r\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />\r\n<!--    para permisos de ubicación-->\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.AppAlertaPrevencionComunitaria\">\r\n        <activity\r\n            android:name=\".ActivityHistorialAlertas\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityContactosEmergencia\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityAlertaActiva\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityMuroSeguridad\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityPerfilUsuario\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityPanico\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityRecuperarClave\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityRegistrarse\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityIniciarSesion\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".ActivityRegistrarComunidad\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"AIzaSyC8XNc4y-Jcm_IrGYUEMDDeM9TeHd4A668\" />\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/app/src/main/AndroidManifest.xml	(date 1771697265686)
+@@ -37,6 +37,9 @@
+             android:name=".ActivityPanico"
+             android:exported="false" />
+         <activity
++            android:name=".ActivityPerfilUsuario"
++            android:exported="false" />
++        <activity
+             android:name=".ActivityRecuperarClave"
+             android:exported="false" />
+         <activity
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"jbr-21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n  <component name=\"VisualizationToolProject\">\r\n    <option name=\"state\">\r\n      <ProjectState>\r\n        <option name=\"scale\" value=\"0.17103271484375\" />\r\n      </ProjectState>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/.idea/misc.xml	(date 1771711963070)
+@@ -1,3 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
+@@ -9,7 +10,7 @@
+   <component name="VisualizationToolProject">
+     <option name="state">
+       <ProjectState>
+-        <option name="scale" value="0.17103271484375" />
++        <option name="scale" value="0.177130126953125" />
+       </ProjectState>
+     </option>
+   </component>
+Index: app/src/main/java/ingenieriasistemas/mildergd/appalertaprevencioncomunitaria/repositorio/PublicacionRepositorio.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.repositorio;\r\n\r\nimport android.content.Context;\r\nimport android.net.Uri;\r\nimport android.os.Handler;\r\nimport android.os.Looper;\r\n\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\nimport com.google.firebase.firestore.Query;\r\nimport com.google.firebase.firestore.QueryDocumentSnapshot;\r\nimport com.google.firebase.storage.FirebaseStorage;\r\nimport com.google.firebase.storage.StorageReference;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport java.util.UUID;\r\nimport java.util.concurrent.ExecutorService;\r\nimport java.util.concurrent.Executors;\r\n\r\nimport ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.db.BaseDeDatosApp;\r\nimport ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.modelos.MultimediaPublicacion;\r\nimport ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.modelos.Publicacion;\r\nimport ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.modelos.dto.PublicacionDTO;\r\nimport ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.repositorio.callback.CallbackListadoPublicaciones;\r\nimport ingenieriasistemas.mildergd.appalertaprevencioncomunitaria.repositorio.callback.SimpleCallback;\r\n\r\npublic class PublicacionRepositorio {\r\n    private final FirebaseFirestore db;\r\n    private final StorageReference storageRef;\r\n    private final BaseDeDatosApp roomDb;\r\n    private final ExecutorService executor;\r\n    private final Handler mainHandler;\r\n\r\n    public PublicacionRepositorio(Context context) {\r\n        this.roomDb = BaseDeDatosApp.obtenerInstancia(context);\r\n        this.db = FirebaseFirestore.getInstance();\r\n        this.storageRef = FirebaseStorage.getInstance().getReference();\r\n        this.executor = Executors.newSingleThreadExecutor();\r\n        this.mainHandler = new Handler(Looper.getMainLooper());\r\n    }\r\n\r\n    public void crearPost(Publicacion publicacion, Uri uriImagen, SimpleCallback callback){\r\n        if(uriImagen != null){\r\n            String nombreArchivo = UUID.randomUUID().toString() + \".jpg\";\r\n            StorageReference fotoRef = storageRef.child(\"multimedia_publicaciones/\" + nombreArchivo);\r\n\r\n            fotoRef.putFile(uriImagen).addOnSuccessListener(taskSnapshot -> {\r\n                fotoRef.getDownloadUrl().addOnSuccessListener(uriDescarga ->{\r\n                    //LLenamos la tabla multimedia\r\n                    MultimediaPublicacion multimedia = new MultimediaPublicacion();\r\n                    multimedia.multimediaId = UUID.randomUUID().toString();\r\n                    multimedia.publicacionId = publicacion.publicacionId;\r\n                    multimedia.rutaStorage = fotoRef.getPath();\r\n                    multimedia.url  = uriDescarga.toString();\r\n                    multimedia.tipoMime = \"image/jpeg\";\r\n                    multimedia.fechaCreacion = System.currentTimeMillis();\r\n                    multimedia.sincronizado = 1;\r\n                    guardarEnNubeYLocal(publicacion, multimedia, callback);\r\n                });\r\n            }).addOnFailureListener(e -> callback.error(\"Error al subir imagen: \" + e.getMessage()));\r\n        }\r\n        else{\r\n            guardarEnNubeYLocal(publicacion, null, callback);\r\n        }\r\n\r\n    }\r\n\r\n    public void guardarEnNubeYLocal(Publicacion pub, MultimediaPublicacion multi, SimpleCallback callback){\r\n        //Guardar publicación en Firestore\r\n        db.collection(\"publicaciones\").document(pub.publicacionId).set(pub)\r\n                .addOnSuccessListener(aVoid -> {\r\n                    //Si hay una imagen guardamos en FireStore también\r\n                    if(multi != null){\r\n                        db.collection(\"multimedia_publicaciones\").document(multi.multimediaId).set(multi)\r\n                                .addOnSuccessListener(aVoid2 -> sincronizarRoom(pub, multi, callback));\r\n                    }\r\n                    else{\r\n                        sincronizarRoom(pub, null, callback);\r\n                    }\r\n                })\r\n                .addOnFailureListener( e -> callback.error(\"Error en nube\" + e.getMessage()));\r\n    }\r\n\r\n    private void sincronizarRoom(Publicacion pub, MultimediaPublicacion multi, SimpleCallback callback) {\r\n        executor.execute( () -> {\r\n            pub.sincronizado = 1;\r\n            roomDb.daoPublicacion().insertar(pub);\r\n            if(multi != null){\r\n                roomDb.daoMultimediaPublicacion().insertar(multi);\r\n            }\r\n            mainHandler.post( () -> callback.exito(\"¡Publicado correctamente!\"));\r\n        });\r\n    }\r\n\r\n    //Cargr muro en tiempo real\r\n    public void escucharFeed(String comunidadId, CallbackListadoPublicaciones callbackListadoPublicaciones){\r\n        db.collection(\"publicaciones\")\r\n                .whereEqualTo(\"comunidadId\", comunidadId)\r\n                .orderBy(\"fechaCreacion\", Query.Direction.DESCENDING)\r\n                .addSnapshotListener( (snapshotPubs, e) ->{\r\n                    if(e != null){\r\n                        callbackListadoPublicaciones.error(e.getMessage());\r\n                        return;\r\n                    }\r\n                    if(snapshotPubs == null || snapshotPubs.isEmpty()){\r\n                        callbackListadoPublicaciones.exito(new ArrayList<>());\r\n                        return;\r\n                    }\r\n\r\n                    db.collection(\"multimedia_publicaciones\")\r\n                            .get()\r\n                            .addOnSuccessListener( snapshotMultimedia ->{\r\n                                Map<String, MultimediaPublicacion> mapaMultimedia = new HashMap<>();\r\n                                for(QueryDocumentSnapshot docMulti : snapshotMultimedia){\r\n                                    MultimediaPublicacion m = docMulti.toObject(MultimediaPublicacion.class);\r\n                                    mapaMultimedia.put(m.publicacionId, m);\r\n                                }\r\n\r\n                                List<PublicacionDTO> listaFeed = new ArrayList<>();\r\n\r\n                                for(QueryDocumentSnapshot docPub : snapshotPubs){\r\n                                    Publicacion pub = docPub.toObject(Publicacion.class);\r\n                                    MultimediaPublicacion multi = mapaMultimedia.get(pub.publicacionId);\r\n                                    listaFeed.add(new PublicacionDTO(pub, multi, \"Vecino\"));\r\n                                }\r\n                                callbackListadoPublicaciones.exito(listaFeed);\r\n                            });\r\n                });\r\n    }\r\n\r\n    public void marcarUtil (String publicacionId, SimpleCallback callback){\r\n        db.collection(\"publicaciones\").document(publicacionId)\r\n                .update(\"contadorUtil\", com.google.firebase.firestore.FieldValue.increment(1))\r\n                .addOnSuccessListener(aVoid -> callback.exito(\"¡Marcado como útil!\"))\r\n                .addOnFailureListener( e -> callback.error(e.getMessage()));\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ingenieriasistemas/mildergd/appalertaprevencioncomunitaria/repositorio/PublicacionRepositorio.java b/app/src/main/java/ingenieriasistemas/mildergd/appalertaprevencioncomunitaria/repositorio/PublicacionRepositorio.java
+--- a/app/src/main/java/ingenieriasistemas/mildergd/appalertaprevencioncomunitaria/repositorio/PublicacionRepositorio.java	(revision a631f6669203f2f77878cf01d4a40e7eccfaa7db)
++++ b/app/src/main/java/ingenieriasistemas/mildergd/appalertaprevencioncomunitaria/repositorio/PublicacionRepositorio.java	(date 1771697265729)
+@@ -112,6 +112,7 @@
+                     db.collection("multimedia_publicaciones")
+                             .get()
+                             .addOnSuccessListener( snapshotMultimedia ->{
++
+                                 Map<String, MultimediaPublicacion> mapaMultimedia = new HashMap<>();
+                                 for(QueryDocumentSnapshot docMulti : snapshotMultimedia){
+                                     MultimediaPublicacion m = docMulti.toObject(MultimediaPublicacion.class);

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573270602324",
+    "project_id": "appalertaprevencioncomun-3d834",
+    "storage_bucket": "appalertaprevencioncomun-3d834.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573270602324:android:a951f28deca5fa641a73c1",
+        "android_client_info": {
+          "package_name": "ingenieriasistemas.mildergd.appalertaprevencioncomunitaria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Xt4CHQewTyGXqe3sKHE8n_yszRZVwgo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
